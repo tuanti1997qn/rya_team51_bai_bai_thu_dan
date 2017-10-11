@@ -19,8 +19,16 @@ extern void Config_LED(void){
     GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3,0); // xuat ra
 
     SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);// cap xung clock cho port F hoat dong
-    GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_4);// port F pin 1 la out put
-    GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_4,GPIO_PIN_4); // xuat ra
+    GPIOPinTypeGPIOOutput(GPIO_PORTA_BASE, GPIO_PIN_4|GPIO_PIN_2|GPIO_PIN_3);// port F pin 1 la out put
+    GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_4|GPIO_PIN_2|GPIO_PIN_3,0); // xuat ra
+
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOD);// cap xung clock cho port F hoat dong
+       GPIOPinTypeGPIOOutput(GPIO_PORTD_BASE, GPIO_PIN_3|GPIO_PIN_2|GPIO_PIN_1|GPIO_PIN_0);// port F pin 1 la out put
+       GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_3|GPIO_PIN_2|GPIO_PIN_1|GPIO_PIN_0,GPIO_PIN_3|GPIO_PIN_2|GPIO_PIN_1|GPIO_PIN_0); // xuat ra
+
+       SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOC);// cap xung clock cho port F hoat dong
+          GPIOPinTypeGPIOOutput(GPIO_PORTC_BASE, GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7);// port F pin 1 la out put
+          GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7,0); // xuat ra
 }
 
 extern void Plinky_LED(void){

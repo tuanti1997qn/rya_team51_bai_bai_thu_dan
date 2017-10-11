@@ -15,6 +15,7 @@
 //* static function
 void bit_shift(char bit);
 void column_shift(char layer, char row);
+void column_shift1(char layer, char row);
 void layer_shift(char layer);
 void choose_layer(char layer);
 
