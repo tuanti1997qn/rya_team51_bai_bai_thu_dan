@@ -13,7 +13,9 @@ ORDERED_OBJS += \
 "./main.obj" \
 "./tm4c123gh6pm_startup_ccs.obj" \
 "./GPIO/GPIO.obj" \
+"./UART/UART.obj" \
 "./quet_led/quet_led.obj" \
+"./quet_led/thu_dan.obj" \
 "./snake/snake.obj" \
 "C:/ti/TivaWare_C_Series-2.1.2.111/driverlib/ccs/Debug/driverlib.lib" \
 "../tm4c123gh6pm.cmd" \
@@ -29,10 +31,12 @@ RMDIR := RMDIR /S/Q
 -include sources.mk
 -include subdir_vars.mk
 -include GPIO/subdir_vars.mk
+-include UART/subdir_vars.mk
 -include quet_led/subdir_vars.mk
 -include snake/subdir_vars.mk
 -include subdir_rules.mk
 -include GPIO/subdir_rules.mk
+-include UART/subdir_rules.mk
 -include quet_led/subdir_rules.mk
 -include snake/subdir_rules.mk
 -include objects.mk
@@ -164,8 +168,8 @@ rya_bai_thu_dan.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" "tm4c123gh6pm_startup_ccs.obj" "GPIO\GPIO.obj" "quet_led\quet_led.obj" "snake\snake.obj" 
-	-$(RM) "main.d" "tm4c123gh6pm_startup_ccs.d" "GPIO\GPIO.d" "quet_led\quet_led.d" "snake\snake.d" 
+	-$(RM) "main.obj" "tm4c123gh6pm_startup_ccs.obj" "GPIO\GPIO.obj" "UART\UART.obj" "quet_led\quet_led.obj" "quet_led\thu_dan.obj" "snake\snake.obj" 
+	-$(RM) "main.d" "tm4c123gh6pm_startup_ccs.d" "GPIO\GPIO.d" "UART\UART.d" "quet_led\quet_led.d" "quet_led\thu_dan.d" "snake\snake.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

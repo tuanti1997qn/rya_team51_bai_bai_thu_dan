@@ -16,7 +16,9 @@
 #define LATCH_PIN           GPIO_PIN_3
 #define PORT_control        GPIO_PORTA_BASE
 //#define Layer_port_control  GPIO_PORTA_BASE
-#define Layer_pin           0xFF
+#define Layer_pinD           0x0F
+#define Layer_pinC           0xF0
+#define Layer_pin            0xFF
 
 
 // function

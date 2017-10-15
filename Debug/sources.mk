@@ -113,6 +113,7 @@ PDE_DEPS__QUOTED :=
 SUBDIRS := \
 . \
 GPIO \
+UART \
 quet_led \
 snake \
 

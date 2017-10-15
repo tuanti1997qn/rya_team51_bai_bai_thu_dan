@@ -5,13 +5,86 @@
  */
 #include "include.h"
 int main(void)
+
 {
     SysCtlClockSet(SYSCTL_SYSDIV_2_5 | SYSCTL_USE_PLL | SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
     Config_LED();
+//    SysCtlClockSet(SYSCTL_SYSDIV_2_5|SYSCTL_USE_PLL|SYSCTL_OSC_MAIN|SYSCTL_XTAL_16MHZ);
+    CC1101_Init();
+//    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
+//    GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3);
+    int i = 0;
+    int a=0;
+/*    while(1)
+    {
+        UART_C1101_Read(GetData,1);
+        TempData = GetData[0];
+//      SysCtlDelay(SysCtlClockGet()/30);
+
+        if (GetData[0] =='A')
+        {
+//           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 0);
+//           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, GPIO_PIN_1|GPIO_PIN_2);
+        }
+        if (GetData[0] =='B')
+        {
+//           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 0);
+//           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, GPIO_PIN_3|GPIO_PIN_1);
+        }
+        if (GetData[0] =='C')
+        {
+//           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 0);
+//           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, GPIO_PIN_2|GPIO_PIN_3);
+        }
+        if (GetData[0] =='D')
+        {
+//           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 0);
+//           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, GPIO_PIN_1|GPIO_PIN_3|GPIO_PIN_2);
+        }
+        if (GetData[0] =='E')
+        {
+//           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 0);
+//           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, GPIO_PIN_1);
+        }
+        if (GetData[0] =='F')
+        {
+//           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 0);
+//           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, GPIO_PIN_2);
+        }
+        if (GetData[0] =='G')
+        {
+//           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 0);
+//           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, GPIO_PIN_3);
+        }
+        if (GetData[0] =='H')
+        {
+//           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, 0);
+//           GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3);
+        }
+    }*/
+
+
 //    init_snake();
-//    set_led_cube(0,0,0);
+//    int o=4;
+//    set_led_cube(0,0,o);
+//    set_led_cube(0,1,o);
+//
+//    set_led_cube(1,0,o);
+//    set_led_cube(0,3,o);
+//    set_led_cube(0,4,o);
+//    set_led_cube(0,5,o);
+//    set_led_cube(0,6,o);
+//    set_led_cube(0,7,o);
+
+//    set_led_cube(0,0,2);
+//    set_led_cube(0,0,3);
+////    set_led_cube(0,0,4);
+////    set_led_cube(0,0,5);
+//    set_led_cube(0,0,6);
+//    set_led_cube(0,0,7);
+
 //    set_led_cube(2,0,0);
-    set_led_cube(1,0,0);
+//    set_led_cube(1,0,0);
 //    set_led_cube(1,0,1);
 //    set_led_cube(1,0,2);
 //    set_led_cube(1,0,3);
@@ -38,7 +111,8 @@ int main(void)
     while(1)
     {
 //        GPIOPinWrite(GPIO_PORTA_BASE, GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_4, GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_4);
-        quet();
+//        quet();
+        hieu_ung_2(0, 7, SysCtlClockGet()/10);
 //        z=0;
 //        for(x=0;x<65;x++)
 //        {

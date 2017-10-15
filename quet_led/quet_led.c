@@ -21,8 +21,8 @@ void quet()
     {
         tang = 0;
     }
-//    SysCtlDelay(SysCtlClockGet()/10);
-//    SysCtlDelay(1000);
+    SysCtlDelay(SysCtlClockGet()/10);
+//    SysCtlDelay(20000);
 }
 
 void set_led_cube(char x, char y, char z)
@@ -54,9 +54,9 @@ void bit_shift(char bit)        //dich 1 bit vao 74HC595
     {
         write_pin(PORT_control,DATA_PIN,0);
     }
-    write_pin(PORT_control,CLK_PIN,CLK_PIN);        //xem lai
-    delay();
     write_pin(PORT_control,CLK_PIN,0);
+    delay();
+    write_pin(PORT_control,CLK_PIN,CLK_PIN);        //xem lai
     delay();
 }
 
@@ -81,11 +81,18 @@ void column_shift(char layer, char row)     // xem lai ve con dich  // dich 1 co
     int column=0;
     for(column=0 ; column<8 ; column++)
     {
-        a[0]=column;
-        a[1]= row;
-        a[2]=layer;
-        bit_shift(led_cube[column][row][layer]);
-//        bit_shift(1);
+//        bit_shift(led_cube[column][row][layer]);
+        static int a =1;
+        if (a)
+        {
+            a=0;
+        }
+        else
+        {
+            a=1;
+        }
+//        bit_shift(a);
+        bit_shift(1);
     }
 
 }
@@ -113,13 +120,14 @@ void layer_shift(char layer)            // dich 1 cot
 {
     int row=0;
     choose_layer(layer);
+//    choose_layer(6);
     for(row=0 ; row<8 ; row++)
     {
         column_shift(layer, row);
     }
-    write_pin(PORT_control,LATCH_PIN,LATCH_PIN);        //xem lai // latchs
-    delay();
     write_pin(PORT_control,LATCH_PIN,0);
+    delay();
+    write_pin(PORT_control,LATCH_PIN,LATCH_PIN);        //xem lai // latchs
     delay();
 
 //    for(row=0 ; row<8 ; row++)
@@ -137,14 +145,9 @@ void choose_layer(char layer)
 {
     char pin[8]= {GPIO_PIN_0,GPIO_PIN_1,GPIO_PIN_2,GPIO_PIN_3,GPIO_PIN_4,GPIO_PIN_5,GPIO_PIN_6,GPIO_PIN_7};
     uint32_t port[8]= { GPIO_PORTD_BASE,GPIO_PORTD_BASE,GPIO_PORTD_BASE,GPIO_PORTD_BASE, GPIO_PORTC_BASE, GPIO_PORTC_BASE, GPIO_PORTC_BASE , GPIO_PORTC_BASE};
-    if(layer == 4)
-    {
-        write_pin(GPIO_PORTD_BASE , Layer_pin , 0);
-    }
-    if(layer == 0)
-    {
-        write_pin(GPIO_PORTC_BASE , Layer_pin , 0);
-    }
+    write_pin(GPIO_PORTD_BASE , Layer_pinD , 0);
+    write_pin(GPIO_PORTC_BASE , Layer_pinC , 0);
+//    write_pin(GPIO_PORTC_BASE , Layer_pinC , GPIO_PIN_1);
     write_pin(port[layer] , Layer_pin , pin[layer]);
 }
 
@@ -166,7 +169,7 @@ void write_pin(unsigned int port, unsigned int pin, unsigned int data)
 }
 void delay()
 {
-//    SysCtlDelay(50);
+    SysCtlDelay(10);
 }
 //-----------------------------------------------------------------------------------------------------------------------
 
